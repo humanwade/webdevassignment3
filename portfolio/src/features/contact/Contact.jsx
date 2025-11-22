@@ -94,22 +94,66 @@ function Contact() {
             <div className="contact-info">
                 {editing ? (
                     <form onSubmit={handleSave} className="edit-contact-form">
-                        <input name="phone" value={info.phone} onChange={handleChange} placeholder="Phone" />
-                        <input name="email" value={info.email} onChange={handleChange} placeholder="Email" />
-                        <input name="linkedin" value={info.linkedin} onChange={handleChange} placeholder="LinkedIn" />
-                        <button type="submit">Save</button>
+                        <div className="form-group">
+                            <label>Phone Number</label>
+                            <input
+                                type="text"
+                                name="phone"
+                                value={info.phone}
+                                onChange={handleChange}
+                                placeholder="e.g. +1 123-456-7890"
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label>Email Address</label>
+                            <input
+                                type="email"
+                                name="email"
+                                value={info.email}
+                                onChange={handleChange}
+                                placeholder="example@email.com"
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label>LinkedIn URL</label>
+                            <input
+                                type="text"
+                                name="linkedin"
+                                value={info.linkedin}
+                                onChange={handleChange}
+                                placeholder="https://linkedin.com/in/..."
+                            />
+                        </div>
+
+                        <div className="edit-actions">
+                            <button
+                                type="button"
+                                className="cancel-btn"
+                                onClick={() => setEditing(false)}
+                            >
+                                Cancel
+                            </button>
+                            <button type="submit" className="save-btn">
+                                Save Info
+                            </button>
+                        </div>
                     </form>
                 ) : (
                     <>
                         <p><strong>📞 Phone:</strong> {info.phone}</p>
                         <p><strong>📧 Email:</strong> <a href={`mailto:${info.email}`}> {info.email}</a></p>
                         <p><strong>🔗 LinkedIn:</strong> <a href={info.linkedin} target="_blank" rel="noopener noreferrer">{info.linkedin}</a></p>
-                        {isAdmin && <button
-                            className="edit-contact-button"
-                            onClick={() => setEditing(true)}
-                        >
-                            Edit
-                        </button>}
+                        {isAdmin && (
+                            <button
+                                className="edit-contact-button"
+                                onClick={() => setEditing(true)}
+                                style={{ marginTop: '1.5rem' }}
+                            >
+                                Edit Info
+                            </button>
+                        )}
                     </>
                 )}
             </div>

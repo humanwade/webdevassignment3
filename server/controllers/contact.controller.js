@@ -23,11 +23,11 @@ const getContactById = async (req, res) => {
     try {
         const contact = await Contact.findById(req.params.id)
         if (!contact) {
-            return res.status(404).json({ error: 'Contact not found'})
+            return res.status(404).json({ error: 'Contact not found' })
         }
         res.json(contact)
-    }catch (err) {
-        res.status(500).json({ error: err.message})
+    } catch (err) {
+        res.status(500).json({ error: err.message })
     }
 }
 
@@ -36,35 +36,35 @@ const updateContact = async (req, res) => {
         const contact = await Contact.findByIdAndUpdate(
             req.params.id,
             req.body,
-            { new: true}
+            { new: true }
         )
         if (!contact) {
-            return res.status(404).json({ error: 'Contact not found'})
+            return res.status(404).json({ error: 'Contact not found' })
         }
         res.json(contact)
-    }catch (err) {
-        res.status(500).json({ error: err.message})
+    } catch (err) {
+        res.status(500).json({ error: err.message })
     }
 }
 
 const deleteContactById = async (req, res) => {
     try {
-        const contact = await Contact.findById(req.params.id)
+        const contact = await Contact.findByIdAndDelete(req.params.id);
         if (!contact) {
-            return res.status(404).json ({ error: 'Contact not found'})
+            return res.status(404).json({ error: "Contact not found" });
         }
-        res.json({ message: 'Contact deleted successfully'})
+        res.json({ message: "Contact deleted successfully" });
     } catch (err) {
-        res.status(500).json({ error: err.message})
+        res.status(500).json({ error: err.message });
     }
-}
+};
 
 const deleteContactAll = async (req, res) => {
     try {
         await Contact.deleteMany({})
-        res.json({ message: 'All contact deleted successfully'})
+        res.json({ message: 'All contact deleted successfully' })
     } catch (err) {
-        res.statsu(500).json({ error: err.message})
+        res.status(500).json({ error: err.message })
     }
 }
 

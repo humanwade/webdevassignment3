@@ -8,7 +8,7 @@ mongoose.connect(config.mongoUri, {
   //useUnifiedTopology: true
 })
   .then(() => {
-    console.log("Database is connected for Assignment2!");
+    console.log("Database is connected for Assignment3!");
   })
 
 mongoose.connection.on('error', () => {

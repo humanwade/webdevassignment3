@@ -1,16 +1,17 @@
 import express from 'express'
 import projectCtrl from '../controllers/project.controller.js'
+import authCtrl from '../controllers/auth.controller.js'
 
 const router = express.Router()
 
 router.route('/api/projects')
   .get(projectCtrl.getAll)
-  .post(projectCtrl.add)
-  .delete(projectCtrl.deleteAll)
+  .post(authCtrl.requireSignin, authCtrl.isAdmin, projectCtrl.add)
+  .delete(authCtrl.requireSignin, authCtrl.isAdmin, projectCtrl.deleteAll)
 
 router.route('/api/projects/:id')
   .get(projectCtrl.getById)
-  .put(projectCtrl.update)
-  .delete(projectCtrl.deleteById)
+  .put(authCtrl.requireSignin, authCtrl.isAdmin, projectCtrl.update)
+  .delete(authCtrl.requireSignin, authCtrl.isAdmin, projectCtrl.deleteById)
 
 export default router

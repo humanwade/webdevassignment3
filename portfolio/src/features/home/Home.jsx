@@ -17,7 +17,7 @@ function Home() {
             <div className="home-text">
 
                 <h1>
-                    {user ? `Welcome, ${user.name.split(" ")[0]}!` : "TEST CI/CD!"}
+                    {user ? `Welcome, ${user.name.split(" ")[0]}!` : "Welcome!"}
                 </h1>
 
                 <h2>

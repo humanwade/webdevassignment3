@@ -21,7 +21,9 @@ const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use(express.static(path.join(__dirname, '../portfolio/dist')));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -46,6 +48,10 @@ app.use('/', projectRoutes);
 app.use('/', uploadRoutes); 
 app.use('/', serviceRoutes);
 app.use('/', aboutRoutes);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../portfolio/dist/index.html'));
+});
 
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);

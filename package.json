@@ -1,4 +1,11 @@
 {
+  "name": "portfolio-server",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
   "dependencies": {
     "compression": "^1.8.1",
     "cookie-parser": "^1.4.7",

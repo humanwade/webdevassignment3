@@ -49,7 +49,7 @@ app.use('/', uploadRoutes);
 app.use('/', serviceRoutes);
 app.use('/', aboutRoutes);
 
-app.get('*', (req, res) => {
+app.get(/(.*)/, (req, res) => {
   res.sendFile(path.join(__dirname, '../portfolio/dist/index.html'));
 });
 

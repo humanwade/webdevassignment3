@@ -121,7 +121,7 @@ function Projects() {
               <img
                 src={
                   project.imageUrl?.startsWith("/uploads/")
-                    ? `http://localhost:3000${project.imageUrl}`
+                    ? `{project.imageUrl}`
                     : imageMap[project.imageUrl?.split("/").pop()] || "/default.png"
                 }
                 alt={project.title}

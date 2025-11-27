@@ -270,7 +270,7 @@ function EditProject() {
                                         <span style={{color:'#888', fontSize:'0.8rem'}}>Current Image:</span>
                                         <br/>
                                         <img 
-                                            src={project.imageUrl.startsWith("/uploads") ? `http://localhost:3000${project.imageUrl}` : `/assets/projectFiles/${project.imageUrl}`} 
+                                            src={project.imageUrl.startsWith("/uploads") ? `{project.imageUrl}` : `/assets/projectFiles/${project.imageUrl}`} 
                                             alt="Current" 
                                             style={{ height: '60px', borderRadius: '4px', marginTop: '5px' }} 
                                         />

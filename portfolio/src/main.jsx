@@ -4,11 +4,12 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App.jsx";
 
-const basename = import.meta.env.MODE === "production" ? "/portfolio" : "/";
+// [수정] basename 변수 삭제하거나 무시
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter basename={basename}>
+    {/* basename 속성을 아예 지우면 기본값이 '/'가 됩니다 */}
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </StrictMode>

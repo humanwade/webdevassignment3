@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
-import profile from "../../assets/profile.jpg";
+import profile from "../../assets/profile.webp";
 import auth from "../../../lib/auth-helper.js";
 
 function Home() {

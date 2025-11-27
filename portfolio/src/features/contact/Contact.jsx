@@ -88,7 +88,7 @@ function Contact() {
 
     return (
         <div className="contact-page">
-            <h1 className="contact-title">CONTACT ME</h1>
+            <h1 className="contact-title" data-testid="contact-title">CONTACT ME</h1>
             <div className="contact-divider"></div>
 
             <div className="contact-info">

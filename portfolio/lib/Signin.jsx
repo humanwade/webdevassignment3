@@ -7,7 +7,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Icon from "@mui/material/Icon";
 import auth from "./auth-helper.js";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { signin } from "./api-auth.js";
 
 export default function Signin() {
@@ -86,15 +86,30 @@ export default function Signin() {
                 )}
             </CardContent>
 
-            <CardActions>
+            <CardActions
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 1,
+                }}
+            >
                 <Button
                     color="primary"
                     variant="contained"
                     onClick={clickSubmit}
-                    sx={{ margin: "auto", mb: 2 }}
+                    sx={{ margin: "auto", mb: 1 }}
                 >
                     Submit
                 </Button>
+                <Link to="/signup" style={{ textDecoration: "none", width: "100%" }}>
+                    <Button
+                        color="secondary"
+                        variant="outlined"
+                        sx={{ width: "100%", mb: 2 }}
+                    >
+                        Don't have an account? Sign Up
+                    </Button>
+                </Link>
             </CardActions>
         </Card>
     );

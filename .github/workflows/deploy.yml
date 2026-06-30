@@ -2,26 +2,26 @@ name: Deploy to Raspberry Pi
 
 on:
   push:
-    branches: [ "main" ] # push했던 브랜치 이름 (main이면 main으로 수정)
+    branches: [ "main" ] # branch name
 
 jobs:
   deploy:
-    runs-on: self-hosted # 라즈베리파이(Runner)한테 일 시킴
+    runs-on: self-hosted # Raspberry Pi(Runner)
 
     steps:
     - name: 1. Pull Latest Code
       run: |
-        cd ~/FullPortfolio/webdevassignment3
+        cd ~/apps/fullportfolio
         git pull origin main
 
     - name: 2. Install Root Dependencies
       run: |
-        cd ~/FullPortfolio/webdevassignment3
+        cd ~/apps/fullportfolio
         npm install
 
     - name: 3. Build Frontend
       run: |
-        cd ~/FullPortfolio/webdevassignment3/portfolio
+        cd ~/apps/fullportfolio/portfolio
         npm install
         npm run build
 
